@@ -1,6 +1,5 @@
 import java.util.*; //Importando todas las clases de java.  
 
-import jdk.jfr.Timestamp;
 
 public class vista implements RadioGeneral{
         
