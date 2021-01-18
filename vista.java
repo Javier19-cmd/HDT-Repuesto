@@ -1,3 +1,5 @@
+import java.util.*; //Importando todas las clases de java. 
+
 public class vista implements RadioGeneral{
         
         public boolean isOn(){
@@ -27,6 +29,9 @@ public class vista implements RadioGeneral{
 
         public void emisoras(){
             //Enseña la lista de estaciones de radio ya sea que esté en am o fm.
+            
+            ArrayList Am = new ArrayList(); //Emisoras de la frecuencia am.
+            ArrayList Fm = new ArrayList(); //Emisoras de la frecuencia fm.
         }
 
         public void frecuencia(){
