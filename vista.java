@@ -1,4 +1,6 @@
-import java.util.*; //Importando todas las clases de java. 
+import java.util.*; //Importando todas las clases de java.  
+
+import jdk.jfr.Timestamp;
 
 public class vista implements RadioGeneral{
         
@@ -32,6 +34,7 @@ public class vista implements RadioGeneral{
             
             ArrayList Am = new ArrayList(); //Emisoras de la frecuencia am.
             ArrayList Fm = new ArrayList(); //Emisoras de la frecuencia fm.
+        
         }
 
         public void frecuencia(){
