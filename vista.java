@@ -5,7 +5,7 @@ import java.util.*; //Importando todas las clases de java.
 
 
 
-public class vista implements Radio{
+public class vista implements RadioGeneral{
     
     boolean isOn = false; //la radio siempre inicia apagada
     int frecuencia = 1; // 1 == AM  2== FM  tiene am de default  cuando se enciende la radio
@@ -21,19 +21,6 @@ public class vista implements Radio{
     
     Scanner elec = new Scanner(System.in);
 
-        public static void menu(){//Menú de opciones para el usuario..
-
-            //Impresión del menú para el usuario
-            System.out.println("Bienvenido al radio de su computadora.");
-            System.out.println("1. Encender el radio.");
-            System.out.println("2. Cambiar la frecuencia.");
-            System.out.println("3. Cambiar de emisora.");
-            System.out.println("4. Guardar emisora de radio.");
-            System.out.println("5. Seleccionar emisora.");
-            System.out.println("6. Apagar el radio.");
-            System.out.println("0. Salir.");
-
-        }
         public void imprime(int num){
             //se imprime lo necesario según se indica por los otros métodos
             if(num == 1){
@@ -47,7 +34,7 @@ public class vista implements Radio{
             }
             
         }
-        public boolean isOn(){
+        public boolean isON(){
          //Se usará para ver si el radio está o no encendido y en caso de no estar encendido, le prohíbe al main hacer que funcione el radio.
          //Se asignan valores a los arrays de las emisoras 
          Am.add(1);
@@ -78,7 +65,7 @@ public class vista implements Radio{
          Fm.add(1);
          Fm.add(1);
             
-            return isOn;
+         return isOn;
              
         }
 
@@ -117,34 +104,16 @@ public class vista implements Radio{
             }
             
         }
-
-        public void disminuir(){
-            //Retrocede la emisra También verifica si la emisora es am o fm.
-            if(frecuencia == 1){ //se cambia la estación en am
-                if(estam == 530){ //este es el valor máximo que puede llegar a tener las estaciones de am
-                    estam = 1610;
-                }else{
-                    estam = estam - 10; 
-                }
-                
-            }else if(frecuencia == 2){ //cambiar la estación en fm
-                if(estfm == 87.9){ //este es el valor máximo que puede llegar a tener las estaciones de fm
-                    estfm = 107.9;
-                }else{
-                    estfm = estfm - 0.2; 
-                }
-                
-            }
-        }
-
-        public void asignar(int posicion){
+        
+        
+        public boolean asignar(int num){
             //Creará una arraylist o array con las emisoras de am y fm.
             
                     
                     //posicion = elec.nextInt();
 
                     //Switch para ver en qué botón lo desea meter.
-                    switch(posicion){
+                    switch(num){
                         
                         case 1: //Botón 1.
                         System.out.println("Emisora asignada al botón 1.");
@@ -152,9 +121,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam);
+                                Am.set(num, estam);
                             }else {
-                                Fm.set(posicion, estfm);
+                                Fm.set(num, estfm);
                             }
 
                             break; //Terminando la opción 1.
@@ -166,9 +135,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                               Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                               Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
 
                             break; //Terminando la opción 2.
@@ -179,9 +148,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
                             
                             break; //Terminando la opción 3.
@@ -192,9 +161,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
                             break; //Terminando la opción 4.
                         
@@ -204,9 +173,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
                             break; //Terminando la opción 5.
                         
@@ -216,9 +185,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
                             
                             break; //Terminando la opción 6.
@@ -229,9 +198,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
 
                             break; //Terminando la opción 7.
@@ -242,9 +211,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam);  //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam);  //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
                             break; //Terminando la opción 8.
                         
@@ -254,9 +223,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
                             break; //Terminando la opción 9.
                         
@@ -266,9 +235,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
                             break; //Terminando la opción 10.
                         
@@ -278,9 +247,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
                             break; //Terminando la opción 11.
                         
@@ -290,9 +259,9 @@ public class vista implements Radio{
                             //Añadiendo la emisora en el botón 1. Si la frecuencia es 1, entonces la estación se guarda en el ArrayList de la AM.
                             //                                    Si la frecuencia es 2, entonces la estación se guarda en el ArrayList de la FM. 
                             if(frecuencia == 1){
-                                Am.set(posicion, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
+                                Am.set(num, estam); //Añadiendo la emisora am que se desea guardar en el ArrayList Am.
                             }else {
-                                Fm.set(posicion, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
+                                Fm.set(num, estfm); //Añadiendo la emisora am que se desea guardar en el ArrayList Fm.
                             }
                             break; //Terminando la opción 12.
                         
@@ -300,29 +269,33 @@ public class vista implements Radio{
                         System.out.println("Ha elegido una opción no válida.");
                         break; //Terminando la opción default. 
                     }
+
+                    return true; //Return de true para que no haya problema.
                 
         }
 
-        public void emisoras(int posicion){
+        public boolean emisora(int num){
             //Enseña la lista de estaciones de radio ya sea que esté en am o fm.
             if(frecuencia == 1){
-                if(Am.get(posicion).equals(1)){
+                if(Am.get(num).equals(1)){
                 
-                    System.out.println("No hay ninguna emisora AM guardada en el botón: "+posicion);
+                    System.out.println("No hay ninguna emisora AM guardada en el botón: "+num);
                 
                 }else{
                     System.out.println("La estación actual es: "+ estam);
                 }
             }else if(frecuencia == 2){
 
-                if(Fm.get(posicion).equals(1)){
+                if(Fm.get(num).equals(1)){
 
-                    System.out.println("No hay ninguna emisora FM guardada en el botón: "+posicion);
+                    System.out.println("No hay ninguna emisora FM guardada en el botón: "+num);
                 
                 }else{
                     System.out.println("La estación actual es: "+ estfm);
                 }
             }
+
+            return true; //Retorno de true para que no haya problema.
         
         }
 
